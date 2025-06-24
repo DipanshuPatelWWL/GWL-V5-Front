@@ -56,6 +56,7 @@ const AddcustomerPage = () => {
             toast.error(message);
             console.error("Signup error:", err);
         }
+        getCustId();
     };
 
     const getCustId = async () => {
@@ -81,6 +82,7 @@ const AddcustomerPage = () => {
         getCustId();
         getCompanyName();
     }, []);
+
 
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-4 sm:p-6">
@@ -149,6 +151,7 @@ const AddcustomerPage = () => {
                                 name="customerid"
                                 id="customerid"
                                 value={data.customerid}
+                                readOnly
                                 onChange={handleChange}
                                 type="text"
                                 placeholder="Customer ID"

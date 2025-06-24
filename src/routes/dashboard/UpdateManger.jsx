@@ -47,7 +47,7 @@ const UpdateManger = () => {
         };
 
         try {
-          await API.put(`/update-lowermanager/${data.managerid}`, updatedData, {
+            await API.put(`/update-lowermanager/${data.managerid}`, updatedData, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -151,6 +151,7 @@ const UpdateManger = () => {
                                 placeholder="Manager ID"
                                 value={data.managerid}
                                 onChange={handleChange}
+                                readOnly
                                 name="managerid"
                                 id="managerid"
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:outline-red-500"

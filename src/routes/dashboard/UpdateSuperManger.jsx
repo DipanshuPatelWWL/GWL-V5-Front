@@ -158,6 +158,7 @@ const UpdateSuperManger = () => {
                                 value={data.managerid}
                                 onChange={handleChange}
                                 name="managerid"
+                                readOnly
                                 id="managerid"
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:outline-red-500"
                             />

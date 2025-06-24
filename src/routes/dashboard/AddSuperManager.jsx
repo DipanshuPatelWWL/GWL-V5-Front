@@ -53,6 +53,7 @@ const AddSuperManger = () => {
             toast.error(message);
             console.log("login error:", err);
         }
+        getLastSuperManId();
     };
 
     const getLastSuperManId = async () => {
@@ -143,6 +144,7 @@ const AddSuperManger = () => {
                                 placeholder="Manager ID"
                                 value={data.managerid}
                                 onChange={handleChange}
+                                readOnly
                                 name="managerid"
                                 id="managerid"
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:outline-red-500"

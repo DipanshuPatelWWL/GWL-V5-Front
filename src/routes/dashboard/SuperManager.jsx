@@ -6,21 +6,21 @@ import { toast } from "react-toastify";
 import API from "../../API/Api";
 
 const SuperManager = () => {
-    const {managerdata,fetchallmanager}=useAuth()
-    const softdeleteCustomer = async (id) => {  
-    try {
-        const response = await API.patch(
-            `/delete-manager/${id}`,
-            null,  // no request body
-        );
-        await fetchallmanager();
-        toast.success('Manager deleted Successfully!');
-    } catch (err) {
-        const message = err.response?.data?.message || "deletion failed";
-        toast.error(message);
-        console.error("delete error:", err);
-    }
-};
+    const { managerdata, fetchallmanager } = useAuth()
+    const softdeleteCustomer = async (id) => {
+        try {
+            const response = await API.patch(
+                `/delete-manager/${id}`,
+                null,  // no request body
+            );
+            await fetchallmanager();
+            toast.success('Manager deleted Successfully!');
+        } catch (err) {
+            const message = err.response?.data?.message || "deletion failed";
+            toast.error(message);
+            console.error("delete error:", err);
+        }
+    };
     return (
         <div className="flex flex-col gap-y-4 p-6 min-h-screen">
             <div>
@@ -46,9 +46,9 @@ const SuperManager = () => {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-200">
-                            {managerdata.map((data,index)=>(
-                                 <tr key={index}>
-                                        <td className="px-4 py-3 dark:text-white">{index+1}</td>
+                                {managerdata.map((data, index) => (
+                                    <tr key={index}>
+                                        <td className="px-4 py-3 dark:text-white">{index + 1}</td>
                                         <td className="px-4 py-3">
                                             <div className="flex items-center gap-3">
                                                 <span className="dark:text-white">{data.firstname}{" "}{data.lastname}</span>
@@ -59,17 +59,19 @@ const SuperManager = () => {
                                         <td className="px-4 py-3 dark:text-white">{data.phone}</td>
                                         <td className="px-4 py-3 flex gap-2">
                                             <Link to={"/layout/update-supermanager"}
-                                            state={{supermanagerid : data._id}}>
+                                                state={{ supermanagerid: data._id }}>
                                                 <button className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded">
                                                     <PencilLine size={16} /> Manage
                                                 </button>
                                             </Link>
-                                            <button className="flex items-center gap-1 px-3 py-1 bg-red-500 text-white rounded">
+                                            <button
+                                                onClick={() => softdeleteCustomer(data._id)}
+                                                className="flex items-center gap-1 px-3 py-1 bg-red-500 text-white rounded">
                                                 <Trash size={16} /> Delete
                                             </button>
                                         </td>
                                     </tr>
-                            ))}
+                                ))}
                             </tbody>
                         </table>
                     </div>

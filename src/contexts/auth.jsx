@@ -46,15 +46,15 @@ export const AuthProvier = ({ children }) => {
                 });
             setuser(response.data.userdata);
         } catch (err) {
-            console.log( err.response?.status || err.message );
+            console.log(err.response?.status || err.message);
         }
     };
     useEffect(() => {
-    const userid = sessionStorage.getItem("id");
-    if (userid) {
-      fetchcustomerData(userid);
-    }
-    },[])
+        const userid = sessionStorage.getItem("id");
+        if (userid) {
+            fetchcustomerData(userid);
+        }
+    }, [])
 
     // *************************************employee***********************************************
 
@@ -101,8 +101,8 @@ export const AuthProvier = ({ children }) => {
         }
     };
     useEffect(() => {
-         const employeeid=sessionStorage.getItem("employeeid");
-        if(employeeid){
+        const employeeid = sessionStorage.getItem("employeeid");
+        if (employeeid) {
             fetchuserData(employeeid);
         }
     }, []);
@@ -134,10 +134,10 @@ export const AuthProvier = ({ children }) => {
             console.log(err.response?.status || err.message);
         }
     };
-    
+
     useEffect(() => {
         const lowermanagerid = sessionStorage.getItem("lowermanagerid");
-        if(lowermanagerid){
+        if (lowermanagerid) {
             fetchlowermanagerData(lowermanagerid);
         }
     }, []);
@@ -198,11 +198,11 @@ export const AuthProvier = ({ children }) => {
             console.log("Error fetching user data:", err.response?.status || err.message);
         }
     };
-    
-     useEffect(() => {
-        const managerid=sessionStorage.getItem("managerid");
-        if(managerid){
-            fetchmanagerData(managerid); 
+
+    useEffect(() => {
+        const managerid = sessionStorage.getItem("managerid");
+        if (managerid) {
+            fetchmanagerData(managerid);
         }
     }, []);
 
@@ -233,7 +233,7 @@ export const AuthProvier = ({ children }) => {
             console.error(err);
         }
     };
-    
+
     useEffect(() => {
         fetchalloffer();
     }, []);
@@ -252,7 +252,7 @@ export const AuthProvier = ({ children }) => {
     useEffect(() => {
         fetchallemployeeoffer();
     }, []);
-    
+
 
     // *************************************upcoming-offer***************************************************
     // get all upcoming offer function

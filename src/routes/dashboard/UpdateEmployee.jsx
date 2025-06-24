@@ -202,6 +202,7 @@ const UpdateEmployee = () => {
                                         id="employeeid"
                                         value={data.employeeid}
                                         onChange={handleChange}
+                                        readOnly
                                         className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:outline-red-500"
                                     />
                                 </div>
@@ -303,6 +304,7 @@ const UpdateEmployee = () => {
                                         name="employeeid"
                                         id="employeeid"
                                         value={data.employeeid}
+                                        readOnly
                                         onChange={handleChange}
                                         className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:outline-red-500"
                                     />

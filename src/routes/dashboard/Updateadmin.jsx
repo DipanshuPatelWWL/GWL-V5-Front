@@ -4,9 +4,10 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts/auth";
+import API from "../../API/Api";
 
 const Updateadmin = () => {
-    const[admin,setadmin]=useState({name:"",email:"",password:""})
+    const [admin, setadmin] = useState({ name: "", email: "", password: "" })
     const location = useLocation();
     const { adminid } = location.state;
     const { fetchloweradminData } = useAuth()
@@ -15,21 +16,21 @@ const Updateadmin = () => {
         e.preventDefault();
         const updatedData = {
             email: admin.email,
-            name:admin.name,
-            password:admin.password
+            name: admin.name,
+            password: admin.password
         };
 
         try {
-            await axios.put(`http://localhost:4000/api/updateadmin/${adminid}`, updatedData, {
+            await API.put(`/api/updateadmin/${adminid}`, updatedData, {
                 headers: {
                     "Content-Type": "application/json",
                 },
                 withCredentials: true,
             });
-            
+
             setadmin({
-                name:"",
-                password:"",
+                name: "",
+                password: "",
                 email: "",
             });
             toast.success("Successfully updated!");
@@ -42,11 +43,11 @@ const Updateadmin = () => {
 
     const fetchadmin = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/api/admin/${adminid}`);
+            const response = await API.get(`/api/admin/${adminid}`);
             console.log(response)
             setadmin({
                 name: response.data.admindata.name,
-                password:response.data.admindata.password,
+                password: response.data.admindata.password,
                 email: response.data.admindata.email
             })
         } catch (err) {

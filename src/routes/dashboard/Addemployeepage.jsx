@@ -61,6 +61,7 @@ const AddemployeePage = () => {
             toast.error(message);
             console.log("login error:", err);
         }
+        getEmpId();
     };
 
     const getEmpId = async () => {

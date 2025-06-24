@@ -45,38 +45,36 @@ const ManagerEmployee = () => {
         }
     };
     // get all request
-    const [request,setrequest]=useState([]);
-    const getallrequest=async()=>{
-    try{
-            const response=await API.get('/allrequest');
+    const [request, setrequest] = useState([]);
+    const getallrequest = async () => {
+        try {
+            const response = await API.get('/allrequest');
             setrequest(response.data.requests);
-            console.log(response.data.requests);
         }
-        catch(err){
+        catch (err) {
             const errorMessage = "get all request data failed";
             toast.error(errorMessage);
             console.error(err);
         }
     };
-        useEffect(()=>{
-            getallrequest();
-        },[])
-    
-    
+    useEffect(() => {
+        getallrequest();
+    }, [])
+
     const handleAction = async (id, approved) => {
-    try{
-    const response=await API.post(`/review/${id}`, { approved });
-    toast.success(response.data.message);
-    await getallrequest();
-    await fetchallemployee();
-    }
-    catch(err){
-        toast.error(err);
-        console.error(err);
-    }
-  };
-        return (
-            <div className="flex min-h-screen flex-col gap-y-4 p-6">
+        try {
+            const response = await API.post(`/review/${id}`, { approved });
+            toast.success(response.data.message);
+            await getallrequest();
+            await fetchallemployee();
+        }
+        catch (err) {
+            toast.error(err);
+            console.error(err);
+        }
+    };
+    return (
+        <div className="flex min-h-screen flex-col gap-y-4 p-6">
             <div>
                 <h1 className="mb-4 text-2xl font-bold text-gray-800 dark:text-white">Edit Employee</h1>
                 <div className="rounded-xl bg-white p-4 shadow dark:bg-slate-900">
@@ -117,24 +115,24 @@ const ManagerEmployee = () => {
                                         <td className="px-4 py-3 dark:text-white">{employee.status}</td>
                                         <td className="px-4 py-3 dark:text-white">{employee.manager}</td>
                                         <td className="flex gap-2 px-4 py-3">
-                                        
-                                                <button
-                                                    onClick={() => approveEmployee(employee._id)}
-                                                    className="my-2 flex items-center gap-1 rounded bg-green-500 px-3 py-1 text-white"
-                                                >
-                                                    <PencilLine size={16} /> Approve
-                                                </button>
 
-                                                <button
-                                                    onClick={() => declineEmployee(employee._id)}
-                                                    className="my-2 flex items-center gap-1 rounded bg-orange-500 px-4 py-1 text-white"
-                                                >
-                                                    <Trash size={16} /> Decline
-                                                </button>                                            
-                                                <button onClick={() => softdeleteemployee(employee._id)}
+                                            <button
+                                                onClick={() => approveEmployee(employee._id)}
+                                                className="my-2 flex items-center gap-1 rounded bg-green-500 px-3 py-1 text-white"
+                                            >
+                                                <PencilLine size={16} /> Approve
+                                            </button>
+
+                                            <button
+                                                onClick={() => declineEmployee(employee._id)}
+                                                className="my-2 flex items-center gap-1 rounded bg-orange-500 px-4 py-1 text-white"
+                                            >
+                                                <Trash size={16} /> Decline
+                                            </button>
+                                            <button onClick={() => softdeleteemployee(employee._id)}
                                                 className="my-2 flex items-center gap-1 rounded bg-red-500 px-4 py-1 text-white">
-                                                    <Trash size={16} /> Delete
-                                                </button>
+                                                <Trash size={16} /> Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}
@@ -166,12 +164,12 @@ const ManagerEmployee = () => {
                                 {request.map((data, index) => (
                                     <tr key={index}>
                                         <td className="px-4 py-3 dark:text-white">{index + 1}</td>
-                                            <td className="px-4 py-3">
-                                            <div className="flex items-center gap-3">
+                                        <td className="px-4 py-3">
+                                            {/* <div className="flex items-center gap-3">
                                                 <span className="dark:text-white">
                                                     {data.employee.firstname} {data.employee.lastname}
                                                 </span>
-                                            </div>
+                                            </div> */}
                                         </td>
                                         <td className="px-4 py-3 dark:text-white">{data.employeeid}</td>
                                         <td className="px-4 py-3 dark:text-white">{data.value}</td>
@@ -179,19 +177,19 @@ const ManagerEmployee = () => {
                                         <td className="px-4 py-3 dark:text-white">{data.type}</td>
                                         <td className="px-4 py-3 dark:text-white">{data.manager}</td>
                                         <td className="flex gap-2 px-4 py-3">
-                                                <button
-                                                    onClick={() => handleAction(data._id,true)}
-                                                    className="my-2 flex items-center gap-1 rounded bg-green-500 px-3 py-1 text-white"
-                                                >
-                                                    <PencilLine size={16} /> Approve
-                                                </button>
+                                            <button
+                                                onClick={() => handleAction(data._id, true)}
+                                                className="my-2 flex items-center gap-1 rounded bg-green-500 px-3 py-1 text-white"
+                                            >
+                                                <PencilLine size={16} /> Approve
+                                            </button>
 
-                                                <button
-                                                    onClick={() => handleAction(data._id,false)}
-                                                    className="my-2 flex items-center gap-1 rounded bg-orange-500 px-4 py-1 text-white"
-                                                >
-                                                    <Trash size={16} /> Decline
-                                                </button>                     
+                                            <button
+                                                onClick={() => handleAction(data._id, false)}
+                                                className="my-2 flex items-center gap-1 rounded bg-orange-500 px-4 py-1 text-white"
+                                            >
+                                                <Trash size={16} /> Decline
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}
