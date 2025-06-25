@@ -21,7 +21,7 @@ const LowerManagerCustomer = () => {
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-6">
             <div>
-                <h1 className="mb-4 text-2xl font-bold text-gray-800 dark:text-white">Edit Customer</h1>
+                <h1 className="mb-4 text-2xl font-bold text-gray-800 dark:text-white">All Customer</h1>
                 <div className="rounded-xl bg-white p-4 shadow dark:bg-slate-900">
                     <div className="mb-4 flex items-start justify-between gap-4 lg:flex-row lg:items-center">
                         <p className="font-semibold dark:text-white sm:text-sm lg:text-lg">Showing {customersdata.length} Customer</p>

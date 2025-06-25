@@ -9,11 +9,11 @@ const LowerManagerEmployee = () => {
     const { employeedata, fetchallemployee } = useAuth();
     const rejectEmp = async (id) => {
         try {
-         await API.put(`/deleteEmp/${id}`);
+            await API.put(`/deleteEmp/${id}`);
             await fetchallemployee();
             toast.success("employee deleted Successfully!");
         } catch (err) {
-            const message =  err.response?.data?.message || "deletion failed";
+            const message = err.response?.data?.message || "deletion failed";
             toast.error(message);
             console.error("delete error:", err);
         }
@@ -21,7 +21,7 @@ const LowerManagerEmployee = () => {
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-6">
             <div>
-                <h1 className="mb-4 text-2xl font-bold text-gray-800 dark:text-white">Edit Employee</h1>
+                <h1 className="mb-4 text-2xl font-bold text-gray-800 dark:text-white">All Employee</h1>
                 <div className="rounded-xl bg-white p-4 shadow dark:bg-slate-900">
                     <div className="mb-4 flex items-start justify-between gap-4 lg:flex-row lg:items-center">
                         <p className="font-semibold dark:text-white sm:text-sm lg:text-lg">Showing {employeedata.length} Employee</p>

@@ -177,11 +177,11 @@ const UpdateCompany = () => {
                                     <label className="mb-1 dark:text-white">Employee ID</label>
                                     <input
                                         type="text"
-                                        placeholder="employee id"
+                                        placeholder="employee Id"
                                         value={data.employeeid}
                                         onChange={handleChange}
-                                        name="companyId"
-                                        id="companyId"
+                                        name="employeeid"
+                                        id="employeeid"
                                         className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:border-red-500"
                                     />
                                 </div>
@@ -264,11 +264,11 @@ const UpdateCompany = () => {
                                     <label className="mb-1 dark:text-white">Employee ID</label>
                                     <input
                                         type="text"
-                                        placeholder="employee id"
+                                        placeholder="employee Id"
                                         value={data.employeeid}
                                         onChange={handleChange}
-                                        name="companyId"
-                                        id="companyId"
+                                        name="employeeid"
+                                        id="employeeid"
                                         className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:border-red-500"
                                     />
                                 </div>
