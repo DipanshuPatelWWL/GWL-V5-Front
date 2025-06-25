@@ -74,7 +74,6 @@ const UpdateEmployee = () => {
             });
             await fetchallemployee();
             toast.success("employee updated successfully !");
-            console.log(response);
         } catch (err) {
             const message = err.response?.data?.message || "Login failed";
             toast.error(message);

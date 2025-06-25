@@ -48,8 +48,8 @@ const CustomerPage = () => {
 
     const getTrophyColor = (color) => {
         if (color === 'Blue') return "text-blue-500";
-        if (color === 'Silver' ) return "text-zinc-500";
-        if (color === 'Gold' ) return "text-yellow-500";
+        if (color === 'Silver') return "text-zinc-500";
+        if (color === 'Gold') return "text-yellow-500";
         return "text-red-500";
     };
 
@@ -66,7 +66,6 @@ const CustomerPage = () => {
         try {
             const response = await API.get("/allcompanyrequest");
             setrequest(response.data.requests);
-            console.log(response.data.requests);
         } catch (err) {
             const errorMessage = "get all request data failed";
             toast.error(errorMessage);

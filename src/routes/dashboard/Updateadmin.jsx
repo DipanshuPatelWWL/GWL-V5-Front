@@ -44,7 +44,6 @@ const Updateadmin = () => {
     const fetchadmin = async () => {
         try {
             const response = await API.get(`/api/admin/${adminid}`);
-            console.log(response)
             setadmin({
                 name: response.data.admindata.name,
                 password: response.data.admindata.password,

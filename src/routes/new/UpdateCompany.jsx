@@ -107,7 +107,6 @@ const UpdateCompany = () => {
                     withCredentials: true,
                 }
             );
-            console.log(response);
             setcompanyId("");
             setType("");
             setValue("");

@@ -33,14 +33,13 @@ function AdminLoginForm() {
         e.preventDefault();
         try {
             const response = await API.post("/loginAdmin", data);
-            console.log(response);
             console.log("res from server:", response.data.extradetails);
             storeadmintoken(response.data.admintoken);
             setData({
                 email: "",
                 password: "",
             });
-            sessionStorage.setItem("adminid",response.data.payload.adminId);
+            sessionStorage.setItem("adminid", response.data.payload.adminId);
             navigate("/layout");
         } catch (err) {
             const message = err.response?.data?.extradetails || err.response?.data?.message || "Login failed";

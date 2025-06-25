@@ -2,7 +2,7 @@ import { Footer } from "@/layouts/footer";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts/auth";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import API from "../../API/Api";
 
 const AddOffers = () => {
@@ -24,7 +24,7 @@ const AddOffers = () => {
     const handlesubmit = async (e) => {
         e.preventDefault();
         try {
-           await API.post(
+            await API.post(
                 "/create-offer",
                 {
                     ...data,
@@ -56,10 +56,9 @@ const AddOffers = () => {
         }
     };
 
-      const getLastOfferId = async () => {
+    const getLastOfferId = async () => {
         const response = await API.get("/getLastOfferId");
-        console.log(response);
-        
+
         const nextNumber = parseInt(response.data.lastOfferId.replace("OFF", "")) + 1;
 
         setdata({
