@@ -21,7 +21,7 @@ const Updateadmin = () => {
         };
 
         try {
-            await API.put(`/api/updateadmin/${adminid}`, updatedData, {
+            await API.put(`/updateadmin/${adminid}`, updatedData, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -43,10 +43,10 @@ const Updateadmin = () => {
 
     const fetchadmin = async () => {
         try {
-            const response = await API.get(`/api/admin/${adminid}`);
+            const response = await API.get(`/admin/${adminid}`);
             setadmin({
                 name: response.data.admindata.name,
-                password: response.data.admindata.password,
+                password: "",
                 email: response.data.admindata.email
             })
         } catch (err) {

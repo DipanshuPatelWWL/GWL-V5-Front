@@ -64,7 +64,7 @@ const LowerManagerEmployee = () => {
                                             <Link
                                                 to={"/LowerManagerlayout/update-employee"}
                                                 state={{
-                                                    LManagerEmpId: employee._id,
+                                                    LManagerCustId: employee._id,
                                                     docs: employee.docSales,
                                                     transport: employee.transportSales,
                                                     service: employee.serviceSales,

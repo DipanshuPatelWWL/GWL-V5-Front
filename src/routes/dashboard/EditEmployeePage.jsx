@@ -6,10 +6,10 @@ import { toast } from "react-toastify";
 import API from "../../API/Api";
 
 const EditEmployeePage = () => {
-    const {employeedata,fetchallemployee}=useAuth()
+    const { employeedata, fetchallemployee } = useAuth()
     const softdeleteemployee = async (id) => {
         try {
-             await API.patch(
+            await API.patch(
                 `/deleteemployee/${id}`,
                 null, // no request body
             );
@@ -46,9 +46,9 @@ const EditEmployeePage = () => {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-200">
-                                {employeedata.map((employee,index) => (
+                                {employeedata.map((employee, index) => (
                                     <tr key={index}>
-                                        <td className="px-4 py-3 dark:text-white">{index+1}</td>
+                                        <td className="px-4 py-3 dark:text-white">{index + 1}</td>
                                         <td className="px-4 py-3">
                                             <div className="flex items-center gap-3">
                                                 <span className="dark:text-white">{employee.firstname}{" "}{employee.lastname}</span>
@@ -59,15 +59,15 @@ const EditEmployeePage = () => {
                                         <td className="px-4 py-3 dark:text-white">{employee.status}</td>
                                         <td className="px-4 py-3 flex gap-2">
                                             <Link to={"/layout/update-employee"}
-                                            state={{LManagerEmpId: employee._id}}>
+                                                state={{ LManagerCustId: employee._id }}>
                                                 <button className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded">
                                                     <PencilLine size={16} /> Manage
                                                 </button>
                                             </Link>
-                                             <button onClick={() => softdeleteemployee(employee._id)}
+                                            <button onClick={() => softdeleteemployee(employee._id)}
                                                 className=" flex items-center gap-1 rounded bg-red-500 px-3 py-1 text-white">
-                                                    <Trash size={16} /> Delete
-                                                </button>
+                                                <Trash size={16} /> Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}
@@ -76,7 +76,7 @@ const EditEmployeePage = () => {
                     </div>
                 </div>
             </div>
-            
+
             <Footer />
         </div>
     );

@@ -24,7 +24,7 @@ const AllManager = () => {
     return (
         <div className="flex flex-col gap-y-4 p-6 min-h-screen">
             <div>
-                <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Edit Manager</h1>
+                <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">All Manager</h1>
                 <div className="bg-white dark:bg-slate-900 shadow rounded-xl p-4">
                     <div className="flex lg:flex-row justify-between items-start lg:items-center mb-4 gap-4">
                         <p className="lg:text-lg sm:text-sm font-semibold dark:text-white">Showing {lowermanagerdata.length} Manager</p>
