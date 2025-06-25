@@ -16,7 +16,7 @@ const UpdateCompany = () => {
     });
 
     const location = useLocation();
-    const { LManagerCompId } = location.state;
+    const { LManagerCustId } = location.state;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -59,17 +59,15 @@ const UpdateCompany = () => {
             console.error("update error:", err);
         }
     };
-
     const getCompany = async () => {
         try {
-            const res = await API.get(`/getCompany/${LManagerCompId}`)
+            const res = await API.get(`/getCompany/${LManagerCustId}`)
             setData({
                 name: res.data.compData.name,
                 companyId: res.data.compData.companyId,
                 email: res.data.compData.email,
                 phone: res.data.compData.phone,
                 companyaddress: res.data.compData.companyaddress,
-                employeeid: res.data.compData.employeeid
             })
 
         } catch (err) {
@@ -81,8 +79,6 @@ const UpdateCompany = () => {
     useEffect(() => {
         getCompany()
     }, [])
-
-
 
     const [companyId, setcompanyId] = useState('');
     const [type, setType] = useState('add');
@@ -121,7 +117,7 @@ const UpdateCompany = () => {
 
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-4 sm:p-6">
-            {sessionStorage.getItem("adminid") ? (
+            {sessionStorage.getItem("adminid") || sessionStorage.getItem("managerid") ? (
                 <>
                     <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Edit Company</h1>
                     <div className="rounded-xl bg-white p-4 shadow dark:bg-slate-900 sm:p-6">
@@ -182,7 +178,7 @@ const UpdateCompany = () => {
                                     <input
                                         type="text"
                                         placeholder="employee id"
-                                        value={data}
+                                        value={data.employeeid}
                                         onChange={handleChange}
                                         name="companyId"
                                         id="companyId"
@@ -241,35 +237,35 @@ const UpdateCompany = () => {
                                     />
                                 </div>
                                 <div className="flex flex-col">
-                                    <label className="mb-1 dark:text-white">Company ID</label>
+                                    <label className="mb-1 dark:text-white">Email</label>
                                     <input
-                                        type="text"
-                                        placeholder="Company ID"
-                                        value={data.companyId}
+                                        type="email"
+                                        placeholder="email"
+                                        value={data.email}
                                         onChange={handleChange}
-                                        name="companyId"
-                                        id="companyId"
+                                        name="email"
+                                        id="email"
                                         className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:border-red-500"
                                     />
                                 </div>
                                 <div className="flex flex-col">
-                                    <label className="mb-1 dark:text-white">Company ID</label>
+                                    <label className="mb-1 dark:text-white">Phone</label>
                                     <input
                                         type="text"
-                                        placeholder="Company ID"
-                                        value={data.companyId}
+                                        placeholder="Phone Number"
+                                        value={data.phone}
                                         onChange={handleChange}
-                                        name="companyId"
-                                        id="companyId"
+                                        name="phone"
+                                        id="phone"
                                         className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:border-red-500"
                                     />
                                 </div>
                                 <div className="flex flex-col">
-                                    <label className="mb-1 dark:text-white">Company ID</label>
+                                    <label className="mb-1 dark:text-white">Employee ID</label>
                                     <input
                                         type="text"
-                                        placeholder="Company ID"
-                                        value={data.companyId}
+                                        placeholder="employee id"
+                                        value={data.employeeid}
                                         onChange={handleChange}
                                         name="companyId"
                                         id="companyId"
@@ -281,9 +277,9 @@ const UpdateCompany = () => {
                                 <label className="mb-1 mt-3 dark:text-white">Company address</label>
                                 <textarea
                                     rows={4}
-                                    placeholder="Company companyaddress"
-                                    name="companycompanyaddress"
-                                    id="companycompanyaddress"
+                                    placeholder="Company address"
+                                    name="companyaddress"
+                                    id="companyaddress"
                                     value={data.companyaddress}
                                     onChange={handleChange}
                                     className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:border-red-500 focus:bg-slate-50 focus:shadow focus:outline-none"

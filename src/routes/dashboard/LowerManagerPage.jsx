@@ -1,88 +1,14 @@
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-
 import { useTheme } from "@/hooks/use-theme";
-
 import { overviewData } from "@/constants";
-
 import { Footer } from "@/layouts/footer";
-
-import { CreditCard,  TrendingUp, Users } from "lucide-react";
-import { Line } from "react-chartjs-2";
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    PointElement,
-    LineElement,
-    //Tooltip,
-    Legend,
-} from "chart.js";
+import LineChart from "../../components/LineChart";
+import { CreditCard, TrendingUp, Users } from "lucide-react";
 import { useAuth } from "../../contexts/auth";
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    PointElement,
-    LineElement,
-    //Tooltip,
-    Legend,
-);
 const LowerManagerPage = () => {
-    const { customersdata, employeedata,  } = useAuth();
+    const { customersdata, employeedata, } = useAuth();
     const { theme } = useTheme();
-    const options = {
-        responsive: true,
-    };
-    const data = {
-        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        datasets: [
-            {
-                label: "My First dataset",
-                data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56],
-                backgroundColor: [
-                    "rgba(255, 99, 132, 0.2)",
-                    "rgba(255, 159, 64, 0.2)",
-                    "rgba(255, 205, 86, 0.2)",
-                    "rgba(75, 192, 192, 0.2)",
-                    "rgba(54, 162, 235, 0.2)",
-                    "rgba(153, 102, 255, 0.2)",
-                    "rgba(201, 203, 207, 0.2)",
-                    "rgba(255, 99, 132, 0.2)",
-                    "rgba(255, 159, 64, 0.2)",
-                    "rgba(255, 205, 86, 0.2)",
-                    "rgba(75, 192, 192, 0.2)",
-                    "rgba(54, 162, 235, 0.2)",
-                    "rgba(153, 102, 255, 0.2)",
-                ],
-                borderColor: [
-                    "rgb(255, 99, 132)",
-                    "rgb(255, 159, 64)",
-                    "rgb(255, 205, 86)",
-                    "rgb(75, 192, 192)",
-                    "rgb(54, 162, 235)",
-                    "rgb(153, 102, 255)",
-                    "rgb(201, 203, 207)",
-                ],
-                borderWidth: 1,
-            },
-        ],
-    };
-    const data1 = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [
-            {
-                label: "My First dataset",
-                data: [65, 59, 80, 81, 56, 55, 40, 59, 80, 81, 56, 55],
-                fill: false,
-                backgroundColor: "rgb(75, 192, 192)",
-                borderColor: "rgba(75, 192, 192, 0.2)",
-            },
-        ],
-    };
     return (
         <div className="flex flex-col gap-y-4">
             <h1 className="title">Manager</h1>
@@ -185,10 +111,7 @@ const LowerManagerPage = () => {
                     <div className="card-header">
                         <p className="card-title">Total Employee Registered</p>
                     </div>
-                    <Line
-                        options={options}
-                        data={data1}
-                    />
+                    <LineChart />
                 </div>
             </div>
 

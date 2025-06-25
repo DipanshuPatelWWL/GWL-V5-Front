@@ -1,13 +1,14 @@
-import {
-    Home,
-    Package,
-    PackagePlus,
-    UserPen,
-    LogOut,
-    User,
-} from "lucide-react";
-
-
+import { Home, UserPen, LogOut, User, Users } from "lucide-react";
+import { GrUserManager } from "react-icons/gr";
+import { RiUser2Line } from "react-icons/ri";
+import { PiBuildingsBold } from "react-icons/pi";
+import { BiSolidOffer } from "react-icons/bi";
+import { TbCirclesRelation } from "react-icons/tb";
+import { RiUserAddLine } from "react-icons/ri";
+import { BsBuildingAdd } from "react-icons/bs";
+import { BsBuildingExclamation } from "react-icons/bs";
+import { IoPricetagsOutline } from "react-icons/io5";
+// admin navbar
 export const navbarLinks = [
     {
         title: "Dashboard",
@@ -24,7 +25,7 @@ export const navbarLinks = [
         links: [
             {
                 label: "All Customer",
-                icon: UserPen,
+                icon: Users,
                 path: "/layout/edit-customer",
             },
         ],
@@ -34,7 +35,7 @@ export const navbarLinks = [
         links: [
             {
                 label: "All Employee",
-                icon: PackagePlus,
+                icon: RiUser2Line,
                 path: "/layout/edit-employee",
             },
         ],
@@ -44,7 +45,7 @@ export const navbarLinks = [
         links: [
             {
                 label: "All Manager",
-                icon: UserPen,
+                icon: GrUserManager,
                 path: "/layout/edit-manager",
             },
         ],
@@ -54,7 +55,7 @@ export const navbarLinks = [
         links: [
             {
                 label: "All Super Manager",
-                icon: UserPen,
+                icon: GrUserManager,
                 path: "/layout/edit-supermanager",
             },
         ],
@@ -64,7 +65,7 @@ export const navbarLinks = [
         links: [
             {
                 label: "All Company",
-                icon: Package,
+                icon: PiBuildingsBold,
                 path: "/layout/edit-company",
             },
         ],
@@ -74,17 +75,17 @@ export const navbarLinks = [
         links: [
             {
                 label: "All Offer",
-                icon: Package,
+                icon: BiSolidOffer,
                 path: "/layout/all-offers",
             },
             {
                 label: "Add Customer Offers",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/layout/add-offers",
             },
             {
                 label: "Add Employee Offers",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/layout/add-employee-offers",
             },
         ],
@@ -94,17 +95,17 @@ export const navbarLinks = [
         links: [
             {
                 label: "All UpcomingOffer",
-                icon: Package,
+                icon: BiSolidOffer,
                 path: "/layout/all-upcomingoffers",
             },
             {
                 label: "Add Customer Upcom..",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/layout/add-upcomingoffers",
             },
             {
                 label: "Add Employee Upcom..",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/layout/add-employee-upcomingoffers",
             },
         ],
@@ -124,7 +125,7 @@ export const navbarLinks = [
         links: [
             {
                 label: "Relation",
-                icon: User,
+                icon: TbCirclesRelation,
                 path: "/layout/relation",
             },
         ],
@@ -141,6 +142,7 @@ export const navbarLinks = [
     },
 ];
 
+// customer navbar
 export const customernavbarLinks = [
     {
         links: [
@@ -156,7 +158,7 @@ export const customernavbarLinks = [
             },
             {
                 label: "Company Profile",
-                icon: UserPen,
+                icon: PiBuildingsBold,
                 path: "/Customerlayout/company-profile",
             },
             {
@@ -168,6 +170,7 @@ export const customernavbarLinks = [
     },
 ];
 
+// employee navbar
 export const employeenavbarLinks = [
     {
         links: [
@@ -195,12 +198,13 @@ export const employeenavbarLinks = [
     },
 ];
 
+// super manager navbar
 export const managernavbarLinks = [
     {
         links: [
             {
                 label: "Dashboard",
-                icon: User,
+                icon: Home,
                 path: "/Managerlayout",
             },
         ],
@@ -210,17 +214,17 @@ export const managernavbarLinks = [
         links: [
             {
                 label: "Cust. Notification",
-                icon: UserPen,
+                icon: User,
                 path: "/Managerlayout/edit-customer",
             },
             {
                 label: "Add Customer",
-                icon: UserPen,
+                icon: RiUserAddLine,
                 path: "/Managerlayout/add-customer",
             },
             {
                 label: "All Customer",
-                icon: UserPen,
+                icon: Users,
                 path: "/Managerlayout/all-customer",
             },
         ],
@@ -230,17 +234,17 @@ export const managernavbarLinks = [
         links: [
             {
                 label: "Empl. Notification",
-                icon: PackagePlus,
+                icon: RiUser2Line,
                 path: "/Managerlayout/edit-employee",
             },
             {
                 label: "Add Employee",
-                icon: PackagePlus,
+                icon: RiUserAddLine,
                 path: "/Managerlayout/add-employee",
             },
             {
                 label: "All Employee",
-                icon: PackagePlus,
+                icon: Users,
                 path: "/Managerlayout/all-employee",
             },
         ],
@@ -250,17 +254,17 @@ export const managernavbarLinks = [
         links: [
             {
                 label: "Comp. Notification",
-                icon: Package,
+                icon: BsBuildingExclamation,
                 path: "/Managerlayout/edit-company",
             },
             {
                 label: "Add Company",
-                icon: Package,
+                icon: BsBuildingAdd,
                 path: "/Managerlayout/add-company",
             },
             {
                 label: "All Company",
-                icon: Package,
+                icon: PiBuildingsBold,
                 path: "/Managerlayout/all-company",
             },
         ],
@@ -270,17 +274,17 @@ export const managernavbarLinks = [
         links: [
             {
                 label: "Offer Notification",
-                icon: Package,
+                icon: BiSolidOffer,
                 path: "/Managerlayout/all-offers",
             },
             {
                 label: "Add Customer Offers",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/Managerlayout/add-offers",
             },
             {
                 label: "Add Employee Offers",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/Managerlayout/add-employee-offers",
             },
         ],
@@ -290,17 +294,17 @@ export const managernavbarLinks = [
         links: [
             {
                 label: "Upcoming Offer Noti.",
-                icon: Package,
+                icon: BiSolidOffer,
                 path: "/Managerlayout/all-upcomingoffers",
             },
             {
                 label: "Add Customer Upcom..",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/Managerlayout/add-upcomingoffers",
             },
             {
                 label: "Add Employee Upcom..",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/Managerlayout/add-employee-upcomingoffers",
             },
         ],
@@ -310,7 +314,7 @@ export const managernavbarLinks = [
         links: [
             {
                 label: "Profile",
-                icon: UserPen,
+                icon: User,
                 path: "/Managerlayout/edit-manager",
             },
         ],
@@ -320,7 +324,7 @@ export const managernavbarLinks = [
         links: [
             {
                 label: "Relation",
-                icon: User,
+                icon: TbCirclesRelation,
                 path: "/Managerlayout/relation",
             },
         ],
@@ -337,12 +341,13 @@ export const managernavbarLinks = [
     },
 ];
 
+// lowermanager navbar
 export const lowermanagernavbarLinks = [
     {
         links: [
             {
                 label: "Dashboard",
-                icon: User,
+                icon: Home,
                 path: "/LowerManagerlayout",
             },
         ],
@@ -352,7 +357,7 @@ export const lowermanagernavbarLinks = [
         links: [
             {
                 label: "Customer",
-                icon: UserPen,
+                icon: User,
                 path: "/LowerManagerlayout/edit-customer",
             },
         ],
@@ -362,7 +367,7 @@ export const lowermanagernavbarLinks = [
         links: [
             {
                 label: "Employee",
-                icon: PackagePlus,
+                icon: RiUser2Line,
                 path: "/LowerManagerlayout/edit-employee",
             },
         ],
@@ -372,7 +377,7 @@ export const lowermanagernavbarLinks = [
         links: [
             {
                 label: "Company",
-                icon: Package,
+                icon: PiBuildingsBold,
                 path: "/LowerManagerlayout/edit-company",
             },
         ],
@@ -382,17 +387,17 @@ export const lowermanagernavbarLinks = [
         links: [
             {
                 label: "All Offers",
-                icon: Package,
+                icon: BiSolidOffer,
                 path: "/LowerManagerlayout/all-offers",
             },
             {
                 label: "Add Customer Offers",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/LowerManagerlayout/add-offers",
             },
             {
                 label: "Add Employee Offers",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/LowerManagerlayout/add-employee-offers",
             },
         ],
@@ -402,17 +407,17 @@ export const lowermanagernavbarLinks = [
         links: [
             {
                 label: "All Upcoming Offer",
-                icon: Package,
+                icon: BiSolidOffer,
                 path: "/LowerManagerlayout/all-upcomingoffers",
             },
             {
                 label: "Add Customer Upcom..",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/LowerManagerlayout/add-upcomingoffers",
             },
             {
                 label: "Add Employee Upcom..",
-                icon: Package,
+                icon: IoPricetagsOutline,
                 path: "/LowerManagerlayout/add-employee-upcomingoffers",
             },
         ],
@@ -422,7 +427,7 @@ export const lowermanagernavbarLinks = [
         links: [
             {
                 label: "Profile",
-                icon: UserPen,
+                icon: User,
                 path: "/LowerManagerlayout/edit-manager",
             },
         ],
@@ -432,7 +437,7 @@ export const lowermanagernavbarLinks = [
         links: [
             {
                 label: "Relation",
-                icon: User,
+                icon: TbCirclesRelation,
                 path: "/LowerManagerlayout/relation",
             },
         ],
@@ -499,141 +504,3 @@ export const overviewData = [
         total: 2500,
     },
 ];
-
-// export const recentSalesData = [
-//     {
-//         id: 1,
-//         name: "10% off on Dubai Export",
-//         email: "Book the service now",
-//         total: "Read More",
-//     },
-//     {
-//         id: 2,
-//         name: "10% off on Dubai Export",
-//         email: "Book the service now",
-//         total: "Read More",
-//     },
-//     {
-//         id: 3,
-//         name: "10% off on Dubai Export",
-//         email: "Book the service now",
-//         total: "Read More",
-//     },
-//     {
-//         id: 4,
-//         name: "10% off on Dubai Export",
-//         email: "Book the service now",
-//         total: "Read More",
-//     },
-//     {
-//         id: 5,
-//         name: "10% off on Dubai Export",
-//         email: "Book the service now",
-//         total: "Read More",
-//     },
-//     {
-//         id: 6,
-//         name: "10% off on Dubai Export",
-//         email: "Book the service now",
-//         total: "Read More",
-//     },
-//     {
-//         id: 7,
-//         name: "10% off on Dubai Export",
-//         email: "Book the service now",
-//         total: "Read More",
-//     },
-// ];
-
-// export const topProducts = [
-//     {
-//         number: 1,
-//         name: "Iron Man",
-//         image: ProductImage,
-//         description: "High-quality noise-canceling wireless headphones.",
-//         email: "wwl123@gmail.com",
-//         status: "Active",
-//         rating: 4.5,
-//     },
-//     {
-//         number: 2,
-//         name: "Captain India",
-//         image: ProductImage,
-//         description: "Latest 5G smartphone with excellent camera features.",
-//         email: "wwl123@gmail.com",
-//         status: "Inactive",
-//         rating: 4.7,
-//     },
-//     {
-//         number: 3,
-//         name: "Pad Man",
-//         image: ProductImage,
-//         description: "Powerful gaming laptop with high-end graphics.",
-//         email: "wwl123@gmail.com",
-//         status: "Inactive",
-//         rating: 4.8,
-//     },
-//     {
-//         number: 4,
-//         name: "Bat Man",
-//         image: ProductImage,
-//         description: "Stylish smartwatch with fitness tracking features.",
-//         email: "wwl123@gmail.com",
-//         status: "Active",
-//         rating: 4.4,
-//     },
-//     {
-//         number: 5,
-//         name: "Super Man",
-//         image: ProductImage,
-//         description: "Portable Bluetooth speaker with deep bass sound.",
-//         email: "wwl123@gmail.com",
-//         status: "Inactive",
-//         rating: 4.3,
-//     },
-//     {
-//         number: 6,
-//         name: "Spider Man",
-//         image: ProductImage,
-//         description: "Ultra HD 4K monitor with stunning color accuracy.",
-//         email: "wwl123@gmail.com",
-//         status: "Inactive",
-//         rating: 4.6,
-//     },
-//     {
-//         number: 7,
-//         name: "Hulk",
-//         image: ProductImage,
-//         description: "Mechanical keyboard with customizable RGB lighting.",
-//         email: "wwl123@gmail.com",
-//         status: "Inactive",
-//         rating: 4.7,
-//     },
-//     {
-//         number: 8,
-//         name: "Thor",
-//         image: ProductImage,
-//         description: "Ergonomic wireless mouse with precision tracking.",
-//         email: "wwl123@gmail.com",
-//         status: "Inactive",
-//         rating: 4.5,
-//     },
-//     {
-//         number: 9,
-//         name: "Black Widow",
-//         image: ProductImage,
-//         description: "Waterproof action camera with 4K video recording.",
-//         email: "wwl123@gmail.com",
-//         status: "Inactive",
-//         rating: 4.8,
-//     },
-//     {
-//         number: 10,
-//         name: "Aqua Man",
-//         image: ProductImage,
-//         description: "Portable 2TB external hard drive for data storage.",
-//         email: "wwl123@gmail.com",
-//         status: "Active",
-//         rating: 4.5,
-//     },
-// ];

@@ -55,6 +55,7 @@ const AddEmployeeOffers = () => {
             toast.error(message);
             console.log(err);
         }
+        getEmpOfferId();
     };
 
     const getEmpOfferId = async () => {
@@ -89,6 +90,7 @@ const AddEmployeeOffers = () => {
                                 name="offerid"
                                 id="offerid"
                                 value={data.offerid}
+                                readOnly
                                 onChange={employeehandleChange}
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:border-red-500 focus:bg-slate-50 focus:shadow focus:outline-none"
                             />

@@ -1,82 +1,14 @@
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { useTheme } from "@/hooks/use-theme";
-import { overviewData} from "@/constants";
+import { overviewData } from "@/constants";
 import { Footer } from "@/layouts/footer";
-import { CreditCard, TrendingUp, Users } from "lucide-react";
-import { Line } from "react-chartjs-2";
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    PointElement,
-    LineElement,
-    Legend,
-} from "chart.js";
+import { TrendingUp, Users } from "lucide-react";
 import { useAuth } from "../../contexts/auth";
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    PointElement,
-    LineElement,
-    Legend,
-);
+import LineChart from "../../components/LineChart";
 const DashboardPage = () => {
-    const { customersdata, employeedata, managerdata } = useAuth();
+    const { customersdata, employeedata, managerdata, lowermanagerdata } = useAuth();
     const { theme } = useTheme();
-    const options = {
-        responsive: true,
-    };
-    const data = {
-        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        datasets: [
-            {
-                label: "My First dataset",
-                data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56],
-                backgroundColor: [
-                    "rgba(255, 99, 132, 0.2)",
-                    "rgba(255, 159, 64, 0.2)",
-                    "rgba(255, 205, 86, 0.2)",
-                    "rgba(75, 192, 192, 0.2)",
-                    "rgba(54, 162, 235, 0.2)",
-                    "rgba(153, 102, 255, 0.2)",
-                    "rgba(201, 203, 207, 0.2)",
-                    "rgba(255, 99, 132, 0.2)",
-                    "rgba(255, 159, 64, 0.2)",
-                    "rgba(255, 205, 86, 0.2)",
-                    "rgba(75, 192, 192, 0.2)",
-                    "rgba(54, 162, 235, 0.2)",
-                    "rgba(153, 102, 255, 0.2)",
-                ],
-                borderColor: [
-                    "rgb(255, 99, 132)",
-                    "rgb(255, 159, 64)",
-                    "rgb(255, 205, 86)",
-                    "rgb(75, 192, 192)",
-                    "rgb(54, 162, 235)",
-                    "rgb(153, 102, 255)",
-                    "rgb(201, 203, 207)",
-                ],
-                borderWidth: 1,
-            },
-        ],
-    };
-    const data1 = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [
-            {
-                label: "My First dataset",
-                data: [65, 59, 80, 81, 56, 55, 40, 59, 80, 81, 56, 55],
-                fill: false,
-                backgroundColor: "rgb(75, 192, 192)",
-                borderColor: "rgba(75, 192, 192, 0.2)",
-            },
-        ],
-    };
+
     return (
         <div className="flex flex-col gap-y-4">
             <h1 className="title">Admin</h1>
@@ -88,8 +20,10 @@ const DashboardPage = () => {
                         </div>
                         <p className="card-title">Total Customer Registered</p>
                     </div>
-                    <div className="card-body bg-slate-100 transition-colors dark:bg-slate-950">
-                        <p className="text-3xl font-bold text-slate-900 transition-colors dark:text-slate-50">{customersdata.length}</p>
+                    <div className="bg-slate-100 transition-colors dark:bg-slate-950 card-body">
+
+                        <p className="text-3xl font-bold text-slate-900 transition-colors dark:text-slate-50 ">{customersdata.length}</p>
+
                         <span className="flex w-fit items-center gap-x-2 rounded-full border border-red-500 px-2 py-1 font-medium text-red-500 dark:border-red-600 dark:text-red-600">
                             <TrendingUp size={18} />
                             15%
@@ -99,7 +33,7 @@ const DashboardPage = () => {
                 <div className="card">
                     <div className="card-header">
                         <div className="rounded-lg bg-red-500/20 p-2 text-red-500 transition-colors dark:bg-red-600/20 dark:text-red-600">
-                            <CreditCard size={26} />
+                            <Users size={26} />
                         </div>
                         <p className="card-title">Total Employee Registered</p>
                     </div>
@@ -119,7 +53,7 @@ const DashboardPage = () => {
                         <p className="card-title">Total Manager Registered</p>
                     </div>
                     <div className="card-body bg-slate-100 transition-colors dark:bg-slate-950">
-                        <p className="text-3xl font-bold text-slate-900 transition-colors dark:text-slate-50">{managerdata.length}</p>
+                        <p className="text-3xl font-bold text-slate-900 transition-colors dark:text-slate-50">{lowermanagerdata.length}</p>
                         <span className="flex w-fit items-center gap-x-2 rounded-full border border-red-500 px-2 py-1 font-medium text-red-500 dark:border-red-600 dark:text-red-600">
                             <TrendingUp size={18} />
                             15%
@@ -134,7 +68,7 @@ const DashboardPage = () => {
                         <p className="card-title">Total Super Manager Registered</p>
                     </div>
                     <div className="card-body bg-slate-100 transition-colors dark:bg-slate-950">
-                        <p className="text-3xl font-bold text-slate-900 transition-colors dark:text-slate-50">1</p>
+                        <p className="text-3xl font-bold text-slate-900 transition-colors dark:text-slate-50">{managerdata.length}</p>
                         <span className="flex w-fit items-center gap-x-2 rounded-full border border-red-500 px-2 py-1 font-medium text-red-500 dark:border-red-600 dark:text-red-600">
                             <TrendingUp size={18} />
                             15%
@@ -209,10 +143,7 @@ const DashboardPage = () => {
                     <div className="card-header">
                         <p className="card-title">Total Employee Registered</p>
                     </div>
-                    <Line
-                        options={options}
-                        data={data1}
-                    />
+                    <LineChart />
                 </div>
             </div>
 

@@ -34,7 +34,7 @@ const AddOffers = () => {
     const handlesubmit = async (e) => {
         e.preventDefault();
         try {
-        await API.put(`/update-offer/${data.offerid}`, updateoffer, {
+            await API.put(`/update-offer/${data.offerid}`, updateoffer, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -66,7 +66,7 @@ const AddOffers = () => {
                     })
     }, [])
 
-const today = new Date().toISOString().split('T')[0];
+    const today = new Date().toISOString().split('T')[0];
 
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-4 sm:p-6">
@@ -82,6 +82,7 @@ const today = new Date().toISOString().split('T')[0];
                                 name="offerid"
                                 id="offerid"
                                 value={data.offerid}
+                                readOnly
                                 onChange={handleChange}
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:border-red-500"
                             />

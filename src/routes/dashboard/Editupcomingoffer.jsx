@@ -35,7 +35,7 @@ const Editemployeeupcomingoffer = () => {
     const handlesubmit = async (e) => {
         e.preventDefault();
         try {
-           await API.put(`/upcomingupdate-offer/${data.offerid}`, updateoffer, {
+            await API.put(`/upcomingupdate-offer/${data.offerid}`, updateoffer, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -89,6 +89,7 @@ const Editemployeeupcomingoffer = () => {
                                 name="offerid"
                                 id="offerid"
                                 value={data.offerid}
+                                readOnly
                                 onChange={handleChange}
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none "
                             />

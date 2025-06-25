@@ -2,7 +2,7 @@ import { Footer } from "@/layouts/footer";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts/auth";
-import {useEffect} from "react"
+import { useEffect } from "react"
 import API from "../../API/Api";
 
 const Addupcomingoffer = () => {
@@ -54,9 +54,10 @@ const Addupcomingoffer = () => {
             toast.error(message);
             console.log("login error:", err);
         }
+        getCusUpOfferId();
     };
 
-  const getCusUpOfferId = async () => {
+    const getCusUpOfferId = async () => {
         const response = await API.get("/last-cust-up-offer-id")
         const nextNumber = parseInt(response.data.lastCusOfferId.replace("OFF", "")) + 1;
         setdata({
@@ -72,7 +73,7 @@ const Addupcomingoffer = () => {
         getCusUpOfferId();
     }, [])
 
-const today = new Date().toISOString().split('T')[0];
+    const today = new Date().toISOString().split('T')[0];
 
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-4 sm:p-6">
@@ -88,6 +89,7 @@ const today = new Date().toISOString().split('T')[0];
                                 name="offerid"
                                 id="offerid"
                                 value={data.offerid}
+                                readOnly
                                 onChange={handleChange}
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none"
                             />
@@ -128,7 +130,7 @@ const today = new Date().toISOString().split('T')[0];
                                 name="startDate"
                                 id="startDate"
                                 value={data.startDate}
-                                min= {today}
+                                min={today}
                                 onChange={handleChange}
                                 className="h-92 appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none"
                             />

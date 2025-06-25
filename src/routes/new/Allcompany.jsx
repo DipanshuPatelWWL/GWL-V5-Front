@@ -1,83 +1,10 @@
 import { Footer } from "@/layouts/footer";
 import { useAuth } from "../../contexts/auth";
-import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PencilLine } from "lucide-react";
-import API from "../../API/Api";
 
 const Allcompany = () => {
-    const { companydata, fetchallcompany } = useAuth();
-    // const softdeletecompany = async (id) => {
-    //     try {
-    //         const response = await API.patch(
-    //             `/softdelete-company/${id}`,
-    //             null, // no request body
-    //         );
-    //         await fetchallcompany();
-    //         toast.success("company deleted Successfully!");
-    //     } catch (err) {
-    //         const message = "deletion failed";
-    //         toast.error(message);
-    //         console.error("delete error:", err);
-    //     }
-    // };
-    // approve company
-    // const approvecompany = async (id) => {
-    //     try {
-    //         const response = await API.put(`/approvecompany/${id}`);
-    //         await fetchallcompany();
-    //         toast.success(response.data.message); // use backend message directly
-    //     } catch (err) {
-    //         const errorMessage = err.response?.data?.message || "Approve failed";
-    //         toast.error(errorMessage);
-    //         console.error(err);
-    //     }
-    // };
-    // decline company
-    // const declinecompany = async (id) => {
-    //     try {
-    //         const response = await API.put(`/rejectcompany/${id}`);
-    //         await fetchallcompany(); // or your function to refresh customer list
-    //         toast.success(response.data.message); // Show success message from backend
-    //     } catch (err) {
-    //         const errorMessage = err.response?.data?.message || "Decline failed";
-    //         toast.error(errorMessage);
-    //         console.error(err);
-    //     }
-    // };
-    // get all request
-    // const [request,setrequest]=useState([]);
-    // const getallrequest=async()=>{
-    // try{
-    //         const response=await API.get('/allcompanyrequest');
-    //         setrequest(response.data.requests);
-    //         console.log(response.data.requests);
-    //     }
-    //     catch(err){
-    //         const errorMessage = "get all request data failed";
-    //         toast.error(errorMessage);
-    //         console.error(err);
-    //     }
-    // };
-    //     useEffect(()=>{
-    //         getallrequest();
-    //     },[])
-
-
-    //     const handleAction = async (id, approved) => {
-    //     try{
-    //     const response=await API.post(`/reviewpoints/${id}`, { approved });
-    //     //console.log(response);
-    //     toast.success(response.data.message);
-    //     await getallrequest();
-    //     await fetchallcompany();
-    //     }
-    //     catch(err){
-    //         toast.error(err);
-    //         console.error(err);
-    //     }
-    //   };
+    const { companydata } = useAuth();
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-6">
             <div>
@@ -101,7 +28,7 @@ const Allcompany = () => {
                                     <th className="px-4 py-2 text-left font-semibold">Points</th>
                                     <th className="px-4 py-2 text-left font-semibold">Status</th>
                                     <th className="px-4 py-2 text-left font-semibold">Manager_Name</th>
-                                    {/* <th className="px-4 py-2 text-left font-semibold">Actions</th> */}
+                                    <th className="px-4 py-2 text-left font-semibold">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-200">
@@ -128,16 +55,16 @@ const Allcompany = () => {
                                         <td className="px-4 py-3 dark:text-white">{company.points}</td>
                                         <td className="px-4 py-3 dark:text-white">{company.status}</td>
                                         <td className="px-4 py-3 dark:text-white">{company.manager}</td>
-                                        {/* <td className="flex gap-2 px-4 py-3">
+                                        <td className="flex gap-2 px-4 py-3">
                                             <Link
                                                 to={"/Managerlayout/update-company"}
-                                            // state={{ LManagerCustId: customer._id }}
+                                                state={{ LManagerCustId: company._id }}
                                             >
                                                 <button className="flex items-center gap-1 rounded bg-blue-500 px-3 py-1 text-white">
                                                     <PencilLine size={16} /> Manage
                                                 </button>
                                             </Link>
-                                        </td> */}
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

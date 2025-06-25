@@ -9,7 +9,7 @@ const LowerManagerCompanyPage = () => {
     const { companydata, fetchallcompany } = useAuth()
     const softdeletecompany = async (id) => {
         try {
-             await API.put(
+            await API.put(
                 `/deletecompany/${id}`,
             );
             await fetchallcompany();
@@ -68,7 +68,7 @@ const LowerManagerCompanyPage = () => {
                                         <td className="px-4 py-3 dark:text-white">{company.status}</td>
                                         <td className="px-4 py-3 flex gap-2">
                                             <Link to={"/LowerManagerlayout/update-company"}
-                                                state={{ LManagerCompId: company._id }}>
+                                                state={{ LManagerCustId: company._id }}>
                                                 <button className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded">
                                                     <PencilLine size={16} /> Manage
                                                 </button>

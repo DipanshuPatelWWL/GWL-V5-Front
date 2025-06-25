@@ -8,7 +8,7 @@ import API from "../../API/Api";
 const UpdateEmployee = () => {
     const location = useLocation();
     const state = location.state || {}; // Avoid destructuring from undefined
-    const LManagerEmp = location.state;
+    const { LManagerCustId } = location.state;
 
     const {
         docs,
@@ -40,6 +40,7 @@ const UpdateEmployee = () => {
         employeeid: "",
         phone: "",
     });
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setdata((prev) => ({
@@ -113,7 +114,7 @@ const UpdateEmployee = () => {
     };
 
     useEffect(() => {
-        API.get(`/employee/${LManagerEmp.LManagerEmpId}`)
+        API.get(`/employee/${LManagerCustId}`)
             .then(res => {
                 setdata({
                     email: res.data.employeedata.email,
@@ -131,7 +132,7 @@ const UpdateEmployee = () => {
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-4 sm:p-6">
 
-            {sessionStorage.getItem("adminid") ? (
+            {sessionStorage.getItem("adminid") || sessionStorage.getItem("managerid") ? (
                 <>
                     {/* Admin View - Update Employee */}
                     <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Update Employee</h1>

@@ -71,7 +71,7 @@ const AdminCompanyPage = () => {
                                         </td>
                                         <td className="px-4 py-3 flex gap-2">
                                             <Link to={"/layout/update-company"}
-                                                state={{ LManagerCompId: company._id }}
+                                                state={{ LManagerCustId: company._id }}
                                             >
                                                 <button className="flex items-center gap-1 px-3 py-1 bg-blue-500 text-white rounded">
                                                     <PencilLine size={16} /> Manage

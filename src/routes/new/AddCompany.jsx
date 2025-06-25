@@ -7,18 +7,18 @@ import API from "../../API/Api";
 const AddCompany = () => {
     const { fetchallcompany, lowermanager } = useAuth();
     const phone = useRef();
-        function handlenumber(e) {
-            // Remove all characters except digits and dashes
-            const sanitized = e.target.value.replace(/[^0-9-]/g, "");
-            phone.current.value = sanitized;
-        }
+    function handlenumber(e) {
+        // Remove all characters except digits and dashes
+        const sanitized = e.target.value.replace(/[^0-9-]/g, "");
+        phone.current.value = sanitized;
+    }
     const [data, setdata] = useState({
         name: "",
         companyId: "",
-        email:"",
-        phone:"",
-        companyaddress:"",
-        employeeid:"",
+        email: "",
+        phone: "",
+        companyaddress: "",
+        employeeid: "",
     });
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -49,10 +49,10 @@ const AddCompany = () => {
             setdata({
                 name: "",
                 companyId: "",
-                email:"",
-                phone:"",
-                companyaddress:"",
-                employeeid:"",
+                email: "",
+                phone: "",
+                companyaddress: "",
+                employeeid: "",
             });
             await fetchallcompany();
             toast.success("company created successfully !");
@@ -61,18 +61,19 @@ const AddCompany = () => {
             toast.error(err.response.data.message);
             console.log(err);
         }
+        getComId();
     };
 
 
- const getComId = async () => {
+    const getComId = async () => {
         const response = await API.get("/getLastComId")
         const nextNumber = parseInt(response.data.lastComId.replace("COM", "")) + 1;
         setdata({
-              name: "",
-                email:"",
-                phone:"",
-                companyaddress:"",
-                employeeid:"",
+            name: "",
+            email: "",
+            phone: "",
+            companyaddress: "",
+            employeeid: "",
             companyId: "COM" + String(nextNumber).padStart(2, '0'),
         })
     }
@@ -111,6 +112,7 @@ const AddCompany = () => {
                                 id="companyId"
                                 value={data.companyId}
                                 onChange={handleChange}
+                                readOnly
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:border-red-500 focus:bg-slate-50 focus:shadow focus:outline-none"
                             />
                         </div>

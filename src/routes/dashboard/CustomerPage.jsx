@@ -151,6 +151,12 @@ const CustomerPage = () => {
                 {/* Latest Offers */}
                 <div className="card">
                     <div className="card-header">
+                        <span>
+                            <Package
+                                size={26}
+                                className="text-blue-500"
+                            />
+                        </span>
                         <p className="card-title">Latest Offers</p>
                     </div>
                     <div className="card-body h-[300px] overflow-auto p-0">
@@ -179,6 +185,12 @@ const CustomerPage = () => {
                 {/* Upcoming Offers */}
                 <div className="card">
                     <div className="card-header">
+                        <span>
+                            <Package
+                                size={26}
+                                className="text-blue-500"
+                            />
+                        </span>
                         <p className="card-title">Upcoming Offers</p>
                     </div>
                     <div className="card-body h-[300px] overflow-auto p-0">

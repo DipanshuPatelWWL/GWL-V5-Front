@@ -23,7 +23,7 @@ const Allcustomer = () => {
                                     <th className="px-4 py-2 text-left font-semibold">Customer_ID</th>
                                     <th className="px-4 py-2 text-left font-semibold">Manager_Name</th>
                                     <th className="px-4 py-2 text-left font-semibold">Status</th>
-                                    {/* <th className="px-4 py-2 text-left font-semibold">Actions</th> */}
+                                    <th className="px-4 py-2 text-left font-semibold">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-200">
@@ -41,16 +41,16 @@ const Allcustomer = () => {
                                         <td className="px-4 py-3 dark:text-white">{customer.customerid}</td>
                                         <td className="px-4 py-3 dark:text-white">{customer.manager}</td>
                                         <td className="px-4 py-3 dark:text-white">{customer.status}</td>
-                                        {/* <td className="flex gap-2 px-4 py-3">
+                                        <td className="flex gap-2 px-4 py-3">
                                             <Link
                                                 to={"/Managerlayout/manage-customer"}
-                                            // state={{ LManagerCustId: customer._id }}
+                                                state={{ LManagerCustId: customer._id }}
                                             >
                                                 <button className="flex items-center gap-1 rounded bg-blue-500 px-3 py-1 text-white">
                                                     <PencilLine size={16} /> Manage
                                                 </button>
                                             </Link>
-                                        </td> */}
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

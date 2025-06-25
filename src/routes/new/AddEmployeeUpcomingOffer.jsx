@@ -2,7 +2,7 @@ import { Footer } from "@/layouts/footer";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts/auth";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import API from "../../API/Api";
 
 const AddEmployeeUpcomingoffer = () => {
@@ -24,7 +24,7 @@ const AddEmployeeUpcomingoffer = () => {
     const handlesubmit = async (e) => {
         e.preventDefault();
         try {
-             await API.post("/upcomingcreate-employee-offer",
+            await API.post("/upcomingcreate-employee-offer",
                 {
                     ...data,
                     manager: lowermanager && lowermanager.firstname && lowermanager.lastname
@@ -53,9 +53,10 @@ const AddEmployeeUpcomingoffer = () => {
             toast.error(message);
             console.log("login error:", err);
         }
+        getEmpUpOfferId();
     };
 
-      const getEmpUpOfferId = async () => {
+    const getEmpUpOfferId = async () => {
         const response = await API.get("/last-emp-up-offer-id")
         const nextNumber = parseInt(response.data.lastEmpOfferId.replace("OFF", "")) + 1;
         setdata({
@@ -86,6 +87,7 @@ const AddEmployeeUpcomingoffer = () => {
                                 name="offerid"
                                 id="offerid"
                                 value={data.offerid}
+                                readOnly
                                 onChange={handleChange}
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:border-red-500"
                             />

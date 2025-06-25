@@ -46,7 +46,7 @@ const UpdateCustomer = () => {
                 email: "",
                 password: "",
                 customerid: "",
-                companyId: "" ,
+                companyId: "",
             })
             await fetchalluser(); // Refresh the user list after update
             toast.success('Successfully updated!')
@@ -132,12 +132,13 @@ const UpdateCustomer = () => {
                                 name="customerid"
                                 value={data.customerid}
                                 onChange={handleChange}
+                                readOnly
                                 placeholder="Customer ID"
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none focus:outline-red-500"
                             />
                         </div>
 
-                       
+
 
                         <div className="flex flex-col">
                             <label className="mb-1 dark:text-white">Company ID</label>
