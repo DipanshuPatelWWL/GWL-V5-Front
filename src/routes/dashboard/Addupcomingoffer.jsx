@@ -14,13 +14,7 @@ const Addupcomingoffer = () => {
         endDate: "",
         offerid: "",
     });
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setdata((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
+
     const handlesubmit = async (e) => {
         e.preventDefault();
         try {
@@ -74,6 +68,24 @@ const Addupcomingoffer = () => {
     }, [])
 
     const today = new Date().toISOString().split('T')[0];
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setdata((prev) => {
+            if (name === "startDate" && prev.endDate && prev.endDate < value) {
+                return {
+                    ...prev,
+                    startDate: value,
+                    endDate: ""
+                };
+            }
+
+            return {
+                ...prev,
+                [name]: value,
+            };
+        });
+    };
 
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-4 sm:p-6">
@@ -144,7 +156,7 @@ const Addupcomingoffer = () => {
                                 name="endDate"
                                 id="endDate"
                                 value={data.endDate}
-                                min={today}
+                                min={data.startDate || today}
                                 onChange={handleChange}
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:bg-slate-50 focus:shadow focus:outline-none"
                             />

@@ -3,7 +3,7 @@ import { useTheme } from "@/hooks/use-theme";
 import { overviewData } from "@/constants";
 import { Footer } from "@/layouts/footer";
 import LineChart from "../../components/LineChart";
-import { CreditCard, TrendingUp, Users } from "lucide-react";
+import { TrendingUp, Users } from "lucide-react";
 import { useAuth } from "../../contexts/auth";
 
 const LowerManagerPage = () => {
@@ -31,7 +31,7 @@ const LowerManagerPage = () => {
                 <div className="card">
                     <div className="card-header">
                         <div className="rounded-lg bg-red-500/20 p-2 text-red-500 transition-colors dark:bg-red-600/20 dark:text-red-600">
-                            <CreditCard size={26} />
+                            <Users size={26} />
                         </div>
                         <p className="card-title">Total Employee Registered</p>
                     </div>

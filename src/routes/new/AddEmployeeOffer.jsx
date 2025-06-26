@@ -15,13 +15,7 @@ const AddEmployeeOffers = () => {
         endDate: "",
         offerid: "",
     });
-    const employeehandleChange = (e) => {
-        const { name, value } = e.target;
-        setdata((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
+
     const employeehandlesubmit = async (e) => {
         e.preventDefault();
         try {
@@ -69,6 +63,26 @@ const AddEmployeeOffers = () => {
             offerid: "OFF" + String(nextNumber).padStart(2, '0'),
         })
     }
+
+
+    const employeehandleChange = (e) => {
+        const { name, value } = e.target;
+
+        setdata((prev) => {
+            if (name === "startDate" && prev.endDate && prev.endDate < value) {
+                return {
+                    ...prev,
+                    startDate: value,
+                    endDate: ""
+                };
+            }
+
+            return {
+                ...prev,
+                [name]: value,
+            };
+        });
+    };
 
     useEffect(() => {
         getEmpOfferId();
@@ -145,7 +159,7 @@ const AddEmployeeOffers = () => {
                                 name="endDate"
                                 id="endDate"
                                 value={data.endDate}
-                                min={today}
+                                min={data.startDate || today}
                                 onChange={employeehandleChange}
                                 className="w-full appearance-none rounded border px-3 py-2 text-black shadow focus:border-red-500 focus:bg-slate-50 focus:shadow focus:outline-none"
                             />

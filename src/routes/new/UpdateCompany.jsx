@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "@/layouts/footer";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
 import API from "../../API/Api";
 const UpdateCompany = () => {
-    const { fetchallcompany, lowermanager, fetchallemployee } = useAuth();
+    const { fetchallcompany, lowermanager } = useAuth();
     const [data, setData] = useState({
         name: "",
         companyId: "",
@@ -53,7 +53,6 @@ const UpdateCompany = () => {
             })
             toast.success('Successfully updated!')
             await fetchallcompany();
-            await fetchallemployee();
         } catch (err) {
             const message = "updation failed";
             toast.error(message);
@@ -69,6 +68,7 @@ const UpdateCompany = () => {
                 email: res.data.compData.email,
                 phone: res.data.compData.phone,
                 companyaddress: res.data.compData.companyaddress,
+                employeeid: res.data.compData.employeeid,
             })
 
         } catch (err) {
