@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
 import API from "../../API/Api";
 const UpdateCompany = () => {
-    const { fetchallcompany, lowermanager } = useAuth();
+    const { fetchallcompany, lowermanager, fetchallemployee } = useAuth();
     const [data, setData] = useState({
         name: "",
         companyId: "",
@@ -53,6 +53,7 @@ const UpdateCompany = () => {
             })
             toast.success('Successfully updated!')
             await fetchallcompany();
+            await fetchallemployee();
         } catch (err) {
             const message = "updation failed";
             toast.error(message);

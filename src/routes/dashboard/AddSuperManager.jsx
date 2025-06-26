@@ -47,7 +47,6 @@ const AddSuperManger = () => {
             });
             await fetchallmanager();
             toast.success("Manager added successfully !");
-            console.log(response);
         } catch (err) {
             const message = err.response?.data?.message || "Login failed";
             toast.error(message);

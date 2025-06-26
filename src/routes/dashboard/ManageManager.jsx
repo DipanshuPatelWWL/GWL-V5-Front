@@ -55,10 +55,9 @@ const ManageManager = () => {
         try {
             const get_manager_url = manager_type == 'lower_manager' ? 'getlowermanager'
                 : manager_type == 'super_manager' ? 'manager'
-                : manager_type == 'admin' ? 'getAdmin'
-                    : '';
+                    : manager_type == 'admin' ? 'getAdmin'
+                        : '';
             const response = await API.get(`/${get_manager_url}/${managerId}`);
-            console.log(response)
             setManager({
                 firstname: response.data.managerdata.firstname,
                 lastname: response.data.managerdata.lastname,

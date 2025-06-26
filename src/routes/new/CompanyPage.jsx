@@ -46,36 +46,35 @@ const CompanyPage = () => {
         }
     };
     // get all request
-        const [request,setrequest]=useState([]);
-        const getallrequest=async()=>{
-        try{
-                const response=await API.get('/allcompanyrequest');
-                setrequest(response.data.requests);
-                //console.log(response.data.requests);
-            }
-            catch(err){
-                const errorMessage = "get all request data failed";
-                toast.error(errorMessage);
-                console.error(err);
-            }
-        };
-            useEffect(()=>{
-                getallrequest();
-            },[])
-        
-        
-        const handleAction = async (id, approved) => {
-        try{
-        const response=await API.post(`/reviewpoints/${id}`, { approved });
-        toast.success(response.data.message);
-        await getallrequest();
-        await fetchallcompany();
+    const [request, setrequest] = useState([]);
+    const getallrequest = async () => {
+        try {
+            const response = await API.get('/allcompanyrequest');
+            setrequest(response.data.requests);
         }
-        catch(err){
+        catch (err) {
+            const errorMessage = "get all request data failed";
+            toast.error(errorMessage);
+            console.error(err);
+        }
+    };
+    useEffect(() => {
+        getallrequest();
+    }, [])
+
+
+    const handleAction = async (id, approved) => {
+        try {
+            const response = await API.post(`/reviewpoints/${id}`, { approved });
+            toast.success(response.data.message);
+            await getallrequest();
+            await fetchallcompany();
+        }
+        catch (err) {
             toast.error(err);
             console.error(err);
         }
-      };
+    };
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-6">
             <div>

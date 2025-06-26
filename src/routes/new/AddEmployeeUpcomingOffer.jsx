@@ -38,7 +38,6 @@ const AddEmployeeUpcomingoffer = () => {
                     withCredentials: true
                 }
             );
-            //console.log(response);
             setdata({
                 offerTitle: "",
                 offerDescription: "",

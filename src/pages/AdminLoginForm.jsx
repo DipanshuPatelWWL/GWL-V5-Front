@@ -33,7 +33,6 @@ function AdminLoginForm() {
         e.preventDefault();
         try {
             const response = await API.post("/loginAdmin", data);
-            console.log("res from server:", response.data.extradetails);
             storeadmintoken(response.data.admintoken);
             setData({
                 email: "",

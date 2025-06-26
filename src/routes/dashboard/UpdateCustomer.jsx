@@ -8,7 +8,7 @@ import API from "../../API/Api";
 const UpdateCustomer = () => {
     const location = useLocation();
     const LManager = location.state;
-    const { fetchalluser } = useAuth();
+    const { fetchalluser, fetchallcompany } = useAuth();
     const [data, setData] = useState({
         firstname: "",
         lastname: "",
@@ -49,6 +49,7 @@ const UpdateCustomer = () => {
                 companyId: "",
             })
             await fetchalluser(); // Refresh the user list after update
+            await fetchallcompany();
             toast.success('Successfully updated!')
         } catch (err) {
             const message = err.response?.data?.message || "Signup failed";

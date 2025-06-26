@@ -56,7 +56,6 @@ const AddCompany = () => {
             });
             await fetchallcompany();
             toast.success("company created successfully !");
-            //console.log(response);
         } catch (err) {
             toast.error(err.response.data.message);
             console.log(err);

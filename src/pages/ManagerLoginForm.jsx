@@ -14,25 +14,25 @@ function ManagerLoginForm() {
     const navigate = useNavigate();
     const [passwordVisible, setPasswordVisible] = useState(false);
     const { storemanagertoken } = useAuth();
-    
-    function firemessage(){
+
+    function firemessage() {
         Swal.fire({
             title: "Contact Admin for change password",
             showClass: {
-              popup: `
+                popup: `
                 animate__animated
                 animate__fadeInUp
                 animate__faster
               `
             },
             hideClass: {
-              popup: `
+                popup: `
                 animate__animated
                 animate__fadeOutDown
                 animate__faster
               `
             }
-          });
+        });
     }
     const [data, setData] = useState({
         email: "",
@@ -55,13 +55,12 @@ function ManagerLoginForm() {
         e.preventDefault();
         try {
             const response = await API.post("/loginManager", data);
-            console.log("res from server:", response.data.extradetails);
             storemanagertoken(response.data.token);
             setData({
                 email: "",
                 password: "",
             });
-             sessionStorage.setItem("managerid",response.data.payload.managerId);
+            sessionStorage.setItem("managerid", response.data.payload.managerId);
             navigate("/Managerlayout");
         } catch (err) {
             const message = err.response?.data?.message || "Login failed";
@@ -146,7 +145,7 @@ function ManagerLoginForm() {
                     />
                 </div>
             </div>
-        </div>        
+        </div>
     );
 }
 export default ManagerLoginForm;

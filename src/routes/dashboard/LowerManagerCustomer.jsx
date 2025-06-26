@@ -18,6 +18,7 @@ const LowerManagerCustomer = () => {
             console.error(err);
         }
     };
+
     return (
         <div className="flex min-h-screen flex-col gap-y-4 p-6">
             <div>

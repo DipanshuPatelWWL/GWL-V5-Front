@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Footer } from "@/layouts/footer";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts/auth";
 import API from "../../API/Api";
