@@ -165,11 +165,11 @@ const ManagerEmployee = () => {
                                     <tr key={index}>
                                         <td className="px-4 py-3 dark:text-white">{index + 1}</td>
                                         <td className="px-4 py-3">
-                                            {/* <div className="flex items-center gap-3">
+                                            <div className="flex items-center gap-3">
                                                 <span className="dark:text-white">
                                                     {data.employee.firstname} {data.employee.lastname}
                                                 </span>
-                                            </div> */}
+                                            </div>
                                         </td>
                                         <td className="px-4 py-3 dark:text-white">{data.employeeid}</td>
                                         <td className="px-4 py-3 dark:text-white">{data.value}</td>
